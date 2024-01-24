@@ -20,7 +20,7 @@ pipeline {
 
 	stage('Build') { 
             steps { 
-               withCredentials([string(credentialsId: dockerlogin, variable: 'dockerlogin')]){
+               withDockerRegistry([credentialsId: "dockerlogin", url: ""]){
                  script{
                  app =  docker.build("aws")
                  }
